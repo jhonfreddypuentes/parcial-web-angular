@@ -10,6 +10,8 @@ import { GetAllPlantsServiceService } from './GetAllPlantsService.service';
 export class PlantaComponent implements OnInit {
 
   plantas: Array<Planta>=[];
+  plantasExterior: number = 0;
+  plantasInterior: number = 0;
 
   constructor(private getAllPlantsServiceService: GetAllPlantsServiceService) { }
 
@@ -20,7 +22,15 @@ export class PlantaComponent implements OnInit {
   consultarPlantas() {
     this.getAllPlantsServiceService.plantas().subscribe(plantasFromService => {
       this.plantas = plantasFromService;
+      this.plantas.forEach(planta => {
+        if (planta.tipo === 'Interior') {
+          this.plantasInterior +=1;
+        } else if (planta.tipo === 'Exterior') {
+          this.plantasExterior+=1;
+        }
+      });
     });
   }
+
 
 }
