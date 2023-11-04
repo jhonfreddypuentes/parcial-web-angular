@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Tabla de Plantas</h1>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Nombre Común</th>
+        <th>Tipo</th>
+        <th>Clima</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let planta of plantas">
+        <td>{{ planta.nombre_comun }}</td>
+        <td>{{ planta.tipo }}</td>
+        <td>{{ planta.clima }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
